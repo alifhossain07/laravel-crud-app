@@ -46,14 +46,17 @@
               </td>
                <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                 <a class="px-4 py-2 bg-green-400 rounded-full" href="{{ route('edit',$post->id) }}">Edit</a>
+                <a class="px-4 py-2 bg-red-400 rounded-full" href="{{ route('delete',$post->id) }}">Delete</a>
             </tr>
             @endforeach
 
 
 
 
+
           </tbody>
         </table>
+         {{ $posts->links()}}
       </div>
     </div>
   </div>
