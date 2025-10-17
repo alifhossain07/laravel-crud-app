@@ -4,14 +4,14 @@
 
 @section('content')
     <div class="container mx-auto max-w-md py-16 px-4">
-        <h1 class="text-4xl font-bold mb-8 text-center">Create a Post</h1>
+        <h1 class="text-4xl font-bold mb-8 text-center">Edit Post</h1>
 
-        <form method="POST" action="{{ route('store') }}" class="bg-white shadow-md rounded-lg p-6 space-y-4" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('update',$ourPost->id) }}" class="bg-white shadow-md rounded-lg p-6 space-y-4" enctype="multipart/form-data">
             @csrf
             <!-- Name -->
             <div>
                 <label for="name" class="block text-gray-700 font-medium mb-1">Post Name</label>
-                <input type="text" name="name" value="{{ old('name') }}" id="name" placeholder="Enter post name"
+                <input type="text" name="name" value="{{ $ourPost->name }}" id="name" placeholder="Enter post name"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
             </div>
             @error('name')
@@ -20,9 +20,9 @@
             <!-- Description -->
             <div>
                 <label for="description" class="block text-gray-700 font-medium mb-1">Description</label>
-                <textarea value="{{ old('description') }}" name="description" id="description" placeholder="Enter description"
+                <input value="{{ $ourPost->description}}" name="description" id="description" placeholder="Enter description"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
-                    rows="4"></textarea>
+                    rows="4"></input>
             </div>
             @error('description')
                 <p class="text-red-500">{{$message}}</p>
@@ -39,7 +39,7 @@
             <div class="text-center">
                 <button type="submit"
                     class="px-6 py-2 bg-green-400 rounded-xl text-white hover:bg-green-300 duration-300 cursor-pointer">
-                    Create Post
+                    Edit Post
                 </button>
             </div>
         </form>
